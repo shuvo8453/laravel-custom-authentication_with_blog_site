@@ -45,4 +45,4 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitPasswordR
 
 //Category
 
-
+Route::resource('category', CategoryController::class);

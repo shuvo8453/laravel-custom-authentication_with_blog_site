@@ -51,7 +51,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Profile</a>
                         <a class="dropdown-item" href="#">Create Blog</a>
-                        <a class="dropdown-item" href="{{ route('category') }}">Create Category</a>
+                        <a class="dropdown-item" href="{{ route('category.index') }}">Create Category</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                     </div>
