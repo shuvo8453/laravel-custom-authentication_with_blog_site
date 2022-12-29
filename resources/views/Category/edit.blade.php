@@ -25,7 +25,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Category Name:</strong>
-                    <input type="text" name="name" value="{{ category->name }}" class="form-control"
+                    <input type="text" name="name" value="{{ $category->name }}" class="form-control"
                            placeholder="Category name">
                     @error('name')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

@@ -18,7 +18,6 @@
         </div>
     @endif
     <table class="table table-bordered">
-        {{$category=\App\Models\Category::all()->get()}}
         <thead>
         <tr>
             <th>Category Name</th>
@@ -26,13 +25,13 @@
         </tr>
         </thead>
         <tbody>
-        @foreach ($category as $cat)
+        @foreach ($categories as $category)
             <tr>
 
-                <td>{{ $cat->name }}</td>
+                <td>{{ $category->name }}</td>
                 <td>
-                    <form action="{{ route('$category.destroy',$cat->id) }}" method="Post">
-                        <a class="btn btn-primary" href="{{ route('$category.edit',$cat->id) }}">Edit</a>
+                    <form action="{{ route('category.destroy',$category->id) }}" method="Post">
+                        <a class="btn btn-primary" href="{{ route('category.edit',$category->id) }}">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
@@ -42,7 +41,7 @@
         @endforeach
         </tbody>
     </table>
-    {!! $category->links() !!}
+    {!! $categories->links() !!}
 </div>
 
 @endsection

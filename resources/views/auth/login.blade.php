@@ -52,10 +52,17 @@
                           </div>
 
                           <div class="col-md-6 offset-md-4">
-                              <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary">
                                   Login
-                              </button>
+                                </button>
+
+                                <div class="float-right btn btn-outline-secondary">
+                                    <label>
+                                    <a href="{{ route('registration') }}">Registration</a>
+                                    </label>
+                                </div>
                           </div>
+
                       </form>
 
                   </div>

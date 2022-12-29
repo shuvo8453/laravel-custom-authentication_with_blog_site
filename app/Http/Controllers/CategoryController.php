@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(10);
         return view('category.index', compact('categories'));
     }
 
@@ -23,9 +24,11 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required|string|max:255'
         ]);
+            $data = $request->all();
+            $data['user_id'] = Auth::id();
 
-        Category::create($request->post());
-        return redirect()->route('category.index')->withSuccess('success', 'Category has been created Successfully');
+        Category::create($data);
+        return redirect()->route('category.index')->withSuccess('Category has been created Successfully');
     }
 
     public function show(Category $category)
@@ -44,13 +47,13 @@ class CategoryController extends Controller
             'name' => 'required'
         ]);
 
-        $category->fill($request->post()->save);
-        return redirect()->route('category.index')->withSuccess('success', 'Category has been update successfully');
+        $category->update($request->post());
+        return redirect()->route('category.index')->withSuccess('Category has been update successfully');
     }
 
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('category.index')->withSuccess('success', 'Category has been deleted successfully');
+        return redirect()->route('category.index')->withSuccess('Category has been deleted successfully');
     }
 }
